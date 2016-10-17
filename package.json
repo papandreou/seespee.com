@@ -4,8 +4,7 @@
   "description": "seespee website",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=production node server.js",
-    "build": "ln -sf node_modules http-pub/node_modules"
+    "start": "ln -sf node_modules http-pub/node_modules && NODE_ENV=production node server.js"
   },
   "author": "Andreas Lind <andreas@one.com>",
   "license": "BSD-3-Clause",
