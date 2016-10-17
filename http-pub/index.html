@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+        <meta http-equiv="Content-Security-Policy" content="
+            default-src 'none';
+            script-src 'self' 'nonce-developmentonly' 'unsafe-inline' 'unsafe-eval';
+            style-src 'self' 'unsafe-inline' blob: data:;
+            img-src 'self' * *.google-analytics.com;
+            connect-src 'self' https://aec.one.com;
+            object-src 'none';
+            frame-ancestors 'none';
+        ">
+        <meta http-equiv="X-Content-Type-Options" content="nosniff">
+        <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Seespee</title>
+    </head>
+    <body>
+        <form id="form">
+            <input type="text" id="url" placeholder="https://example.com/">
+            <input type="submit" value="Seespee it!">
+        </form>
+        <textarea id="result">
+        </textarea>
+        <script src="/node_modules/systemjs/dist/system.js" data-systemjs-polyfill data-systemjs-csp-production></script>
+        <script src="/config.js"></script>
+        <script src="/config.build.js"></script>
+        <script nonce="developmentonly">
+            System.import('app.js');
+        </script>
+    </body>
+</html>
