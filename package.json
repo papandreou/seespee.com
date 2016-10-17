@@ -4,8 +4,7 @@
   "description": "seespee website",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=production node server.js",
-    "build": "buildProduction --root http-pub --outroot http-pub-production --contentsecuritypolicy --subresourceintegrity http-pub/*.html"
+    "start": "NODE_ENV=production node server.js"
   },
   "author": "Andreas Lind <andreas@one.com>",
   "license": "BSD-3-Clause",
@@ -16,7 +15,6 @@
     "seespee": "^1.9.0"
   },
   "devDependencies": {
-    "assetgraph-builder": "^5.0.0-23",
     "eslint": "^2.11.1",
     "eslint-config-onelint": "^1.1.0",
     "less": "^2.7.1",

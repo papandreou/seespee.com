@@ -6,7 +6,7 @@ var HttpError = require('httperrors');
 var pathModule = require('path');
 
 var isProduction = process.env.NODE_ENV === 'production';
-var publicDir = pathModule.resolve(__dirname, 'http-pub' + (isProduction ? '-production' : ''));
+var publicDir = pathModule.resolve(__dirname, 'http-pub');
 
 express()
     .use('/api/1', express()
