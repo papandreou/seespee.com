@@ -1,4 +1,4 @@
-require('app.less');
+import 'app.less';
 
 var form = document.getElementById('form');
 var inputField = document.getElementById('url');

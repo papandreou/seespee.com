@@ -9,10 +9,12 @@
   "author": "Andreas Lind <andreas@one.com>",
   "license": "BSD-3-Clause",
   "dependencies": {
+    "babel": "6.5.2",
     "express": "^4.14.0",
     "express-extractheaders": "^2.1.0",
     "purify": "^3.3.1",
-    "seespee": "^1.9.0"
+    "seespee": "^1.9.0",
+    "systemjs-plugin-babel": "0.0.16"
   },
   "devDependencies": {
     "eslint": "^2.11.1",
