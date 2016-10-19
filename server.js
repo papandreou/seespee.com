@@ -14,6 +14,34 @@ express()
             var url = purify.url(req.query.url);
             if (url) {
                 seespee(url).then(function (result) {
+                    var assetGraph = result.assetGraph;
+                    result.additions = {};
+                    result.policies.forEach(function (policy) {
+                        Object.keys(policy.additions).forEach(function (directive) {
+                            result.additions[directive] = {};
+                            Object.keys(policy.additions[directive]).forEach(function (origin) {
+                                result.additions[directive][origin] = policy.additions[directive][origin].map(function (relation) {
+                                    return relation.id;
+                                });
+                            });
+                        });
+                    });
+                    delete result.policies;
+                    result.relations = {};
+                    assetGraph.findRelations({}, true).forEach(function (relation) {
+                        result.relations[relation.id] = {
+                            type: relation.type,
+                            from: relation.from.id,
+                            to: relation.to.id || relation.to.url
+                        };
+                    });
+                    result.assets = {};
+                    assetGraph.findAssets({}).forEach(function (asset) {
+                        result.assets[asset.id] = {
+                            url: asset.urlOrDescription
+                        };
+                    });
+                    delete result.assetGraph;
                     res.send(result);
                 });
             } else {
