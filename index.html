@@ -8,6 +8,7 @@
             default-src 'none';
             script-src 'self' 'nonce-developmentonly' 'unsafe-inline' 'unsafe-eval';
             style-src 'self' 'unsafe-inline' blob: data:;
+            font-src 'self';
             img-src 'self' * *.google-analytics.com;
             connect-src 'self' https://aec.one.com;
             object-src 'none';
@@ -20,9 +21,22 @@
     </head>
     <body>
         <form id="form">
-            <input type="text" id="url" placeholder="https://example.com/">
-            <input type="submit" value="Seespee it!">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="url" placeholder="https://example.com/">
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-default">Seespee it!</button>
+                        </span>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
         </form>
+        <div id="progress" class="progress active">
+            <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" style="width: 100%">
+                 <span class="sr-only"></span>
+            </div>
+        </div>
         <textarea id="result">
         </textarea>
         <script src="/node_modules/systemjs/dist/system.js" data-systemjs-polyfill data-systemjs-csp-production></script>

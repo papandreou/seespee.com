@@ -32,6 +32,7 @@ System.config({
         less: 'node_modules/systemjs-plugin-less/less',
         asset: 'node_modules/systemjs-asset-plugin/asset-plugin.js',
         'plugin-babel': 'node_modules/systemjs-plugin-babel/plugin-babel.js',
-        'systemjs-babel-build': 'node_modules/systemjs-plugin-babel/systemjs-babel-browser.js'
+        'systemjs-babel-build': 'node_modules/systemjs-plugin-babel/systemjs-babel-browser.js',
+        bootstrap: 'node_modules/bootstrap'
     }
 });
