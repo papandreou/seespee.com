@@ -14,7 +14,7 @@
     "express": "^4.14.0",
     "express-extractheaders": "^2.1.0",
     "purify": "^3.3.1",
-    "seespee": "^1.9.0",
+    "seespee": "^1.10.0",
     "systemjs-plugin-babel": "0.0.16"
   },
   "devDependencies": {
