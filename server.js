@@ -8,23 +8,33 @@ var pathModule = require('path');
 var isProduction = process.env.NODE_ENV === 'production';
 var publicDir = pathModule.resolve(__dirname);
 
+function fromCamelCase(str) {
+    return str.replace(/[A-Z]/g, function ($0) {
+        return '-' + $0.toLowerCase();
+    });
+}
+
 express()
     .use('/api/1', express()
         .get('/csp', function (req, res, next) {
             var url = purify.url(req.query.url);
             if (url) {
-                seespee(url).then(function (result) {
+                seespee(url, {ignoreMeta: true}).then(function (result) {
                     var assetGraph = result.assetGraph;
                     result.additions = {};
                     result.policies.forEach(function (policy) {
                         Object.keys(policy.additions).forEach(function (directive) {
-                            result.additions[directive] = {};
+                            result.additions[fromCamelCase(directive)] = {};
                             Object.keys(policy.additions[directive]).forEach(function (origin) {
-                                result.additions[directive][origin] = policy.additions[directive][origin].map(function (relation) {
+                                result.additions[fromCamelCase(directive)][origin] = policy.additions[directive][origin].map(function (relation) {
                                     return relation.id;
                                 });
                             });
                         });
+                    });
+                    result.parseTree = {};
+                    Object.keys(result.policies[0].asset.parseTree).forEach(function (directive) {
+                        result.parseTree[fromCamelCase(directive)] = result.policies[0].asset.parseTree[directive];
                     });
                     delete result.policies;
                     result.relations = {};
