@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=production node server.js",
-    "build": "buildProduction --root http-pub --outroot http-pub-production --contentsecuritypolicy --subresourceintegrity http-pub/*.html"
+    "build": "buildProduction --root . --outroot http-pub-production --contentsecuritypolicy --subresourceintegrity *.html"
   },
   "author": "Andreas Lind <andreas@one.com>",
   "license": "BSD-3-Clause",
