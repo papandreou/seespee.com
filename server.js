@@ -6,7 +6,7 @@ var HttpError = require('httperrors');
 var pathModule = require('path');
 
 var isProduction = process.env.NODE_ENV === 'production';
-var publicDir = pathModule.resolve(__dirname);
+var publicDir = isProduction ? pathModule.resolve(__dirname, 'http-pub-production') : __dirname;
 
 function fromCamelCase(str) {
     return str.replace(/[A-Z]/g, function ($0) {
