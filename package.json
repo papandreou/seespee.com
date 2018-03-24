@@ -7,7 +7,7 @@
     "start": "NODE_ENV=production node server.js",
     "build": "buildProduction --root . --outroot http-pub-production --contentsecuritypolicy --subresourceintegrity *.html"
   },
-  "author": "Andreas Lind <andreas@one.com>",
+  "author": "Andreas Lind <andreaslindpetersen@gmail.com>",
   "license": "BSD-3-Clause",
   "dependencies": {
     "babel": "6.5.2",
